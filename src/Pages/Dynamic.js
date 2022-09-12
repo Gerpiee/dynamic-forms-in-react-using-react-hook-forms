@@ -62,9 +62,6 @@ const dynamicForm = {
   },
 };
 
-//Error Component
-const Error = ({ children }) => <p style={{ color: "red" }}>{children}</p>;
-
 const Input = ({ value, onChange, type, ...rest }) => {
   switch (type) {
     case "text":
@@ -115,7 +112,6 @@ const Dynamic = () => {
     handleSubmit,
     control,
     // watch,
-    formState: { errors },
   } = useForm();
 
   const formInputs = Object.keys(dynamicForm).map((e) => {
@@ -139,7 +135,6 @@ const Dynamic = () => {
             </div>
           )}
         />
-        {errors[e] && <Error>This field is required</Error>}
       </section>
     );
   });
